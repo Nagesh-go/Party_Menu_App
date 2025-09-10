@@ -1,0 +1,82 @@
+[
+  {
+    "id": 1,
+    "name": "Caesar Salad",
+    "description": "Fresh romaine lettuce with caesar dressing",
+    "category": "Starter",
+    "isVeg": true,
+    "image": "https://via.placeholder.com/150x150/4CAF50/FFFFFF?text=Caesar+Salad"
+  },
+  {
+    "id": 2,
+    "name": "Chicken Wings",
+    "description": "Spicy buffalo chicken wings",
+    "category": "Starter",
+    "isVeg": false,
+    "image": "https://via.placeholder.com/150x150/FF5722/FFFFFF?text=Chicken+Wings"
+  },
+  {
+    "id": 3,
+    "name": "Grilled Salmon",
+    "description": "Fresh salmon with herbs and lemon",
+    "category": "Main Course",
+    "isVeg": false,
+    "image": "https://via.placeholder.com/150x150/FF9800/FFFFFF?text=Grilled+Salmon"
+  },
+  {
+    "id": 4,
+    "name": "Vegetable Pasta",
+    "description": "Mixed vegetables with tomato sauce",
+    "category": "Main Course",
+    "isVeg": true,
+    "image": "https://via.placeholder.com/150x150/8BC34A/FFFFFF?text=Vegetable+Pasta"
+  },
+  {
+    "id": 5,
+    "name": "Chocolate Cake",
+    "description": "Rich chocolate cake with frosting",
+    "category": "Dessert",
+    "isVeg": true,
+    "image": "https://via.placeholder.com/150x150/795548/FFFFFF?text=Chocolate+Cake"
+  },
+  {
+    "id": 6,
+    "name": "Ice Cream",
+    "description": "Vanilla ice cream with toppings",
+    "category": "Dessert",
+    "isVeg": true,
+    "image": "https://via.placeholder.com/150x150/E1F5FE/000000?text=Ice+Cream"
+  },
+  {
+    "id": 7,
+    "name": "French Fries",
+    "description": "Crispy golden french fries",
+    "category": "Sides",
+    "isVeg": true,
+    "image": "https://via.placeholder.com/150x150/FFC107/000000?text=French+Fries"
+  },
+  {
+    "id": 8,
+    "name": "Garlic Bread",
+    "description": "Toasted bread with garlic butter",
+    "category": "Sides",
+    "isVeg": true,
+    "image": "https://via.placeholder.com/150x150/FFEB3B/000000?text=Garlic+Bread"
+  },
+  {
+    "id": 9,
+    "name": "Beef Steak",
+    "description": "Tender beef steak with vegetables",
+    "category": "Main Course",
+    "isVeg": false,
+    "image": "https://via.placeholder.com/150x150/D32F2F/FFFFFF?text=Beef+Steak"
+  },
+  {
+    "id": 10,
+    "name": "Fruit Salad",
+    "description": "Fresh mixed fruits",
+    "category": "Dessert",
+    "isVeg": true,
+    "image": "https://via.placeholder.com/150x150/4CAF50/FFFFFF?text=Fruit+Salad"
+  }
+]

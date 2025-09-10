@@ -1,0 +1,93 @@
+[
+  {
+    "dishId": 1,
+    "ingredients": [
+      { "name": "Romaine Lettuce", "quantity": "2 cups" },
+      { "name": "Caesar Dressing", "quantity": "3 tbsp" },
+      { "name": "Parmesan Cheese", "quantity": "1/4 cup" },
+      { "name": "Croutons", "quantity": "1/2 cup" }
+    ]
+  },
+  {
+    "dishId": 2,
+    "ingredients": [
+      { "name": "Chicken Wings", "quantity": "12 pieces" },
+      { "name": "Buffalo Sauce", "quantity": "1/2 cup" },
+      { "name": "Butter", "quantity": "2 tbsp" },
+      { "name": "Garlic Powder", "quantity": "1 tsp" }
+    ]
+  },
+  {
+    "dishId": 3,
+    "ingredients": [
+      { "name": "Salmon Fillet", "quantity": "1 lb" },
+      { "name": "Lemon", "quantity": "1 whole" },
+      { "name": "Fresh Herbs", "quantity": "2 tbsp" },
+      { "name": "Olive Oil", "quantity": "2 tbsp" }
+    ]
+  },
+  {
+    "dishId": 4,
+    "ingredients": [
+      { "name": "Pasta", "quantity": "1 lb" },
+      { "name": "Mixed Vegetables", "quantity": "2 cups" },
+      { "name": "Tomato Sauce", "quantity": "1 cup" },
+      { "name": "Onion", "quantity": "1 medium" }
+    ]
+  },
+  {
+    "dishId": 5,
+    "ingredients": [
+      { "name": "Flour", "quantity": "2 cups" },
+      { "name": "Sugar", "quantity": "1 cup" },
+      { "name": "Cocoa Powder", "quantity": "1/2 cup" },
+      { "name": "Eggs", "quantity": "3 large" },
+      { "name": "Butter", "quantity": "1/2 cup" }
+    ]
+  },
+  {
+    "dishId": 6,
+    "ingredients": [
+      { "name": "Heavy Cream", "quantity": "2 cups" },
+      { "name": "Vanilla Extract", "quantity": "1 tsp" },
+      { "name": "Sugar", "quantity": "1/2 cup" },
+      { "name": "Milk", "quantity": "1 cup" }
+    ]
+  },
+  {
+    "dishId": 7,
+    "ingredients": [
+      { "name": "Potatoes", "quantity": "4 large" },
+      { "name": "Vegetable Oil", "quantity": "2 cups" },
+      { "name": "Salt", "quantity": "1 tsp" },
+      { "name": "Paprika", "quantity": "1/2 tsp" }
+    ]
+  },
+  {
+    "dishId": 8,
+    "ingredients": [
+      { "name": "Bread", "quantity": "1 loaf" },
+      { "name": "Garlic", "quantity": "4 cloves" },
+      { "name": "Butter", "quantity": "1/2 cup" },
+      { "name": "Parsley", "quantity": "2 tbsp" }
+    ]
+  },
+  {
+    "dishId": 9,
+    "ingredients": [
+      { "name": "Beef Steak", "quantity": "1 lb" },
+      { "name": "Mixed Vegetables", "quantity": "1 cup" },
+      { "name": "Olive Oil", "quantity": "2 tbsp" },
+      { "name": "Salt & Pepper", "quantity": "to taste" }
+    ]
+  },
+  {
+    "dishId": 10,
+    "ingredients": [
+      { "name": "Mixed Fruits", "quantity": "3 cups" },
+      { "name": "Honey", "quantity": "2 tbsp" },
+      { "name": "Lemon Juice", "quantity": "1 tbsp" },
+      { "name": "Mint Leaves", "quantity": "1 tbsp" }
+    ]
+  }
+]

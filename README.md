@@ -1,4 +1,153 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+## PartyMenuApp
+
+React Native app for selecting party dishes, filtering by category and veg/non-veg, and viewing ingredients.
+
+Built with React Native 0.81 and React Navigation (Stack). Includes a simple web demo file for previewing the UI.
+
+### Prerequisites
+- Node.js ≥ 20
+- npm (bundled with Node)
+- Git (recommended)
+- Android build tools:
+  - Android Studio (includes Android SDK + Emulator)
+  - JDK (Android Studio’s bundled JBR works fine)
+
+### 1) Clone and install
+```bash
+cd PartyMenuApp
+npm install
+```
+
+### 2) Android setup
+Ensure Android SDK path is available and the project has `local.properties`:
+
+`android/local.properties`
+```
+sdk.dir=C:\Users\<YOUR_USER>\AppData\Local\Android\Sdk
+```
+
+You can also set environment variables in the shell where you run commands:
+```powershell
+$env:ANDROID_HOME="C:\Users\<YOUR_USER>\AppData\Local\Android\Sdk"
+$env:ANDROID_SDK_ROOT=$env:ANDROID_HOME
+```
+
+JDK: The project is configured to use Android Studio’s bundled JDK via `android/gradle.properties`:
+```
+org.gradle.java.home=C:\\Program Files\\Android\\Android Studio\\jbr
+org.gradle.java.installations.fromEnv=JAVA_HOME
+org.gradle.java.installations.auto-download=false
+```
+
+#### Create/start an emulator
+From Android Studio: Tools → Device Manager → Create/Start AVD (e.g., Pixel 4). For low-RAM systems, set RAM 1024–1536 MB, disable Snapshots, and Cold Boot.
+
+Alternatively via PowerShell:
+```powershell
+& "$env:ANDROID_HOME\emulator\emulator.exe" -list-avds
+& "$env:ANDROID_HOME\emulator\emulator.exe" -avd Pixel_4 -no-snapshot -memory 1024 -no-boot-anim -gpu swiftshader_indirect -accel off
+```
+
+### 3) Run on Android
+From the project folder:
+```bash
+npx react-native start   # in one terminal (Metro)
+```
+
+In another terminal (with emulator running or device connected):
+```bash
+npx react-native run-android
+```
+
+If you prefer to build the APK and install manually:
+```powershell
+cd android
+./gradlew assembleDebug
+```
+APK output:
+```
+android/app/build/outputs/apk/debug/app-debug.apk
+```
+Install:
+```powershell
+adb install -r android\app\build\outputs\apk\debug\app-debug.apk
+```
+
+### 4) iOS (macOS only)
+```bash
+cd PartyMenuApp
+npx react-native run-ios
+```
+
+### 5) Quick web preview (demo)
+A lightweight HTML demo (not a full RN Web port) is available:
+```
+PartyMenuApp/demo.html
+```
+Open it in your browser to preview the UI/flows.
+
+### Project scripts
+```json
+{
+  "start": "react-native start",
+  "android": "react-native run-android",
+  "ios": "react-native run-ios",
+  "test": "jest",
+  "lint": "eslint ."
+}
+```
+
+### Project structure (app core)
+```
+PartyMenuApp/
+  App.tsx                 # NavigationContainer + Stack
+  screens/
+    HomeScreen.js         # Categories, filters, list, selection
+    IngredientScreen.js   # Dish detail + ingredients
+  components/
+    DishCard.js
+    FilterToggle.js
+    SearchBar.js
+  data/
+    dishes.json
+    ingredients.json
+  android/                # Native Android project
+  ios/                    # Native iOS project
+```
+
+### Troubleshooting
+
+• Command `run-android` unrecognized
+- You are not in the app folder. Run `cd PartyMenuApp` first.
+
+• SDK location not found
+- Ensure `android/local.properties` contains the correct `sdk.dir`.
+- Or set env vars:
+```powershell
+$env:ANDROID_HOME="C:\Users\<YOU>\AppData\Local\Android\Sdk"
+$env:ANDROID_SDK_ROOT=$env:ANDROID_HOME
+```
+
+• JAVA_HOME / JDK errors or Gradle toolchain warnings
+- The project pins Android Studio JBR in `android/gradle.properties`. Ensure Android Studio is installed at `C:\Program Files\Android\Android Studio`.
+
+• Emulator fails to launch or times out
+- Start it from Android Studio’s Device Manager, cold boot, reduce RAM (1024–1536 MB), disable Snapshots.
+- Or use a physical Android device with USB debugging enabled.
+
+• Insufficient memory / paging file too small (DOS error/errno=1455)
+- Increase Windows virtual memory: sysdm.cpl → Advanced → Performance (Settings) → Advanced → Virtual memory (Change). Set Custom size: Initial 4096 MB, Maximum 8192–12288 MB. Restart Windows.
+
+• Metro already running
+- It’s fine. If needed, stop existing Metro (Ctrl+C) and run `npx react-native start` again.
+
+### Notes
+- The codebase uses React Native 0.81 APIs and React Navigation Stack.
+- Data is local JSON; no backend required.
+- TypeScript config is included; core screens/components are in JavaScript.
+
+### License
+MIT
 
 # Getting Started
 

@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Party Menu App - Demo</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+            background-color: #f5f5f5;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 400px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: #4CAF50;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .search-bar {
+            margin: 15px;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 16px;
+        }
+        
+        .filter-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin: 15px;
+        }
+        
+        .filter-btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 20px;
+            background: #e0e0e0;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .filter-btn.active {
+            background: #4CAF50;
+            color: white;
+        }
+        
+        .tabs {
+            display: flex;
+            background: white;
+            margin: 0 15px 15px;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        .tab {
+            flex: 1;
+            padding: 12px;
+            text-align: center;
+            background: white;
+            border: none;
+            cursor: pointer;
+            border-bottom: 2px solid transparent;
+        }
+        
+        .tab.active {
+            border-bottom-color: #4CAF50;
+            color: #4CAF50;
+            font-weight: bold;
+        }
+        
+        .dish-card {
+            display: flex;
+            margin: 8px 15px;
+            padding: 12px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .dish-image {
+            width: 80px;
+            height: 80px;
+            border-radius: 8px;
+            margin-right: 12px;
+            background: linear-gradient(45deg, #4CAF50, #8BC34A);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 12px;
+            text-align: center;
+        }
+        
+        .dish-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        
+        .dish-name {
+            font-size: 18px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 4px;
+        }
+        
+        .dish-description {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 8px;
+        }
+        
+        .dish-buttons {
+            display: flex;
+            gap: 8px;
+        }
+        
+        .btn {
+            padding: 8px 16px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 14px;
+        }
+        
+        .btn-add {
+            background: #4CAF50;
+            color: white;
+        }
+        
+        .btn-remove {
+            background: #f44336;
+            color: white;
+        }
+        
+        .btn-ingredients {
+            background: #2196F3;
+            color: white;
+        }
+        
+        .summary {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px;
+            background: white;
+            border-top: 1px solid #e0e0e0;
+        }
+        
+        .continue-btn {
+            background: #4CAF50;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🍽️ Party Menu Selection</h1>
+        </div>
+        
+        <input type="text" class="search-bar" placeholder="Search dishes..." id="searchInput">
+        
+        <div class="filter-buttons">
+            <button class="filter-btn active" onclick="filterDishes('all')">All</button>
+            <button class="filter-btn" onclick="filterDishes('veg')">🥗 Veg</button>
+            <button class="filter-btn" onclick="filterDishes('nonveg')">🍖 Non-Veg</button>
+        </div>
+        
+        <div class="tabs">
+            <button class="tab active" onclick="showCategory('Starter')">Starter (2)</button>
+            <button class="tab" onclick="showCategory('Main Course')">Main Course (1)</button>
+            <button class="tab" onclick="showCategory('Dessert')">Dessert (0)</button>
+            <button class="tab" onclick="showCategory('Sides')">Sides (0)</button>
+        </div>
+        
+        <div id="dishesList">
+            <!-- Caesar Salad -->
+            <div class="dish-card">
+                <div class="dish-image">🥗<br>Caesar<br>Salad</div>
+                <div class="dish-content">
+                    <div>
+                        <div class="dish-name">Caesar Salad</div>
+                        <div class="dish-description">Fresh romaine lettuce with caesar dressing</div>
+                    </div>
+                    <div class="dish-buttons">
+                        <button class="btn btn-add" onclick="toggleDish(1)">Add</button>
+                        <button class="btn btn-ingredients" onclick="showIngredients(1)">Ingredients</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Chicken Wings -->
+            <div class="dish-card">
+                <div class="dish-image">🍗<br>Chicken<br>Wings</div>
+                <div class="dish-content">
+                    <div>
+                        <div class="dish-name">Chicken Wings</div>
+                        <div class="dish-description">Spicy buffalo chicken wings</div>
+                    </div>
+                    <div class="dish-buttons">
+                        <button class="btn btn-add" onclick="toggleDish(2)">Add</button>
+                        <button class="btn btn-ingredients" onclick="showIngredients(2)">Ingredients</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Grilled Salmon -->
+            <div class="dish-card">
+                <div class="dish-image">🐟<br>Grilled<br>Salmon</div>
+                <div class="dish-content">
+                    <div>
+                        <div class="dish-name">Grilled Salmon</div>
+                        <div class="dish-description">Fresh salmon with herbs and lemon</div>
+                    </div>
+                    <div class="dish-buttons">
+                        <button class="btn btn-add" onclick="toggleDish(3)">Add</button>
+                        <button class="btn btn-ingredients" onclick="showIngredients(3)">Ingredients</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="summary">
+            <span>Selected: <strong id="selectedCount">0</strong> dishes</span>
+            <button class="continue-btn" onclick="continueToCheckout()">Continue</button>
+        </div>
+    </div>
+
+    <script>
+        let selectedDishes = [];
+        let currentCategory = 'Starter';
+        let currentFilter = 'all';
+        
+        function toggleDish(dishId) {
+            const index = selectedDishes.indexOf(dishId);
+            if (index > -1) {
+                selectedDishes.splice(index, 1);
+            } else {
+                selectedDishes.push(dishId);
+            }
+            updateSelectedCount();
+            updateButtons();
+        }
+        
+        function updateSelectedCount() {
+            document.getElementById('selectedCount').textContent = selectedDishes.length;
+        }
+        
+        function updateButtons() {
+            // Update button states based on selection
+            const buttons = document.querySelectorAll('.btn-add, .btn-remove');
+            buttons.forEach(btn => {
+                const dishId = parseInt(btn.onclick.toString().match(/\d+/)[0]);
+                if (selectedDishes.includes(dishId)) {
+                    btn.textContent = 'Remove';
+                    btn.className = 'btn btn-remove';
+                } else {
+                    btn.textContent = 'Add';
+                    btn.className = 'btn btn-add';
+                }
+            });
+        }
+        
+        function showCategory(category) {
+            currentCategory = category;
+            // Update tab states
+            document.querySelectorAll('.tab').forEach(tab => tab.classList.remove('active'));
+            event.target.classList.add('active');
+            
+            // In a real app, this would filter dishes by category
+            console.log('Showing category:', category);
+        }
+        
+        function filterDishes(filter) {
+            currentFilter = filter;
+            // Update filter button states
+            document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+            
+            console.log('Filtering by:', filter);
+        }
+        
+        function showIngredients(dishId) {
+            const ingredients = {
+                1: ['Romaine Lettuce (2 cups)', 'Caesar Dressing (3 tbsp)', 'Parmesan Cheese (1/4 cup)', 'Croutons (1/2 cup)'],
+                2: ['Chicken Wings (12 pieces)', 'Buffalo Sauce (1/2 cup)', 'Butter (2 tbsp)', 'Garlic Powder (1 tsp)'],
+                3: ['Salmon Fillet (1 lb)', 'Lemon (1 whole)', 'Fresh Herbs (2 tbsp)', 'Olive Oil (2 tbsp)']
+            };
+            
+            const dishNames = {
+                1: 'Caesar Salad',
+                2: 'Chicken Wings', 
+                3: 'Grilled Salmon'
+            };
+            
+            alert(`Ingredients for ${dishNames[dishId]}:\n\n${ingredients[dishId].join('\n')}`);
+        }
+        
+        function continueToCheckout() {
+            if (selectedDishes.length === 0) {
+                alert('Please select at least one dish!');
+                return;
+            }
+            alert(`Great! You've selected ${selectedDishes.length} dishes. In the real app, this would take you to checkout!`);
+        }
+        
+        // Search functionality
+        document.getElementById('searchInput').addEventListener('input', function(e) {
+            const searchTerm = e.target.value.toLowerCase();
+            console.log('Searching for:', searchTerm);
+            // In a real app, this would filter the dishes list
+        });
+    </script>
+</body>
+</html>
